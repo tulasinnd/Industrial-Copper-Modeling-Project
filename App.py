@@ -61,35 +61,19 @@ with tab1:
              
         if submit_button and flag==0:
             # Print the user input
-            st.write("Status:", status)
-            st.write("Item Type:", item_type)
-            st.write("Country:", country)
-            st.write("Application:", application) 
-            st.write("Product Reference:", product_ref)
-            st.write("Quantity Tons:", quantity_tons)
-            st.write("Thickness:", thickness)
-            st.write("Width:", width)
-            st.write("Customer ID:", customer)
-
-            # loaded_model = joblib.load(r"C:\Users\91939\OneDrive\Desktop\Copper_P4\Decision_Tree_Regressor.joblib")
-
-            # # Load scaler object
-            # scaler = joblib.load(r"C:\Users\91939\OneDrive\Desktop\Copper_P4\scaler.joblib")
-
-            # # Load one-hot encoder object
-            # type_en = joblib.load(r"C:\Users\91939\OneDrive\Desktop\Copper_P4\type.joblib")
-
-            # # Load label binarizer object
-            # status_en = joblib.load(r"C:\Users\91939\OneDrive\Desktop\Copper_P4\status.joblib")
-
-            # ['quantity tons_log', 'application', 'thickness_log', 'width','country','customer','product_ref']].values, X_ohe, X_be
-            # new_sample = np.array([[np.log(700), 10, np.log(20), 10, 28,30202938,1670798778,'PL','Lost']])
+#             st.write("Status:", status)
+#             st.write("Item Type:", item_type)
+#             st.write("Country:", country)
+#             st.write("Application:", application) 
+#             st.write("Product Reference:", product_ref)
+#             st.write("Quantity Tons:", quantity_tons)
+#             st.write("Thickness:", thickness)
+#             st.write("Width:", width)
+#             st.write("Customer ID:", customer)
 
             import pickle
-            # Loading the model
             with open(r"source/model.pkl", 'rb') as file:
                 loaded_model = pickle.load(file)
-            # Load the objects using pickle
             with open(r'source/scaler.pkl', 'rb') as f:
                 scaler_loaded = pickle.load(f)
 
@@ -101,15 +85,13 @@ with tab1:
 
             new_sample= np.array([[np.log(float(quantity_tons)),application,np.log(float(thickness)),float(width),country,float(customer),int(product_ref),item_type,status]])
 
-
-
-            #new_sample = np.array([[np.log(700), 10, np.log(20), 10, 28,30202938,1670798778,'PL','Won']])
+           #new_sample = np.array([[np.log(700), 10, np.log(20), 10, 28,30202938,1670798778,'PL','Won']])
             new_sample_ohe = t_loaded.transform(new_sample[:, [7]]).toarray()
             new_sample_be = s_loaded.transform(new_sample[:, [8]]).toarray()
             new_sample = np.concatenate((new_sample[:, [0,1,2, 3, 4, 5, 6,]], new_sample_ohe, new_sample_be), axis=1)
             new_sample1 = scaler_loaded.transform(new_sample)
             new_pred = loaded_model.predict(new_sample)
-            st.write('Predicted selling price:', np.exp(new_pred))
+            st.write('## Predicted selling price:', np.exp(new_pred))
 
               
 with tab2:
