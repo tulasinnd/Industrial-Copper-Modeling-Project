@@ -87,16 +87,16 @@ with tab1:
 
             import pickle
             # Loading the model
-            with open(r"C:\Users\91939\OneDrive\Desktop\Copper_P4\model.pkl", 'rb') as file:
+            with open(r"source/model.pkl", 'rb') as file:
                 loaded_model = pickle.load(file)
             # Load the objects using pickle
-            with open(r'C:\Users\91939\OneDrive\Desktop\Copper_P4\scaler.pkl', 'rb') as f:
+            with open(r'source/scaler.pkl', 'rb') as f:
                 scaler_loaded = pickle.load(f)
 
-            with open(r"C:\Users\91939\OneDrive\Desktop\Copper_P4\t.pkl", 'rb') as f:
+            with open(r"source/t.pkl", 'rb') as f:
                 t_loaded = pickle.load(f)
 
-            with open(r"C:\Users\91939\OneDrive\Desktop\Copper_P4\s.pkl", 'rb') as f:
+            with open(r"source/s.pkl", 'rb') as f:
                 s_loaded = pickle.load(f)
 
             new_sample= np.array([[np.log(float(quantity_tons)),application,np.log(float(thickness)),float(width),country,float(customer),int(product_ref),item_type,status]])
