@@ -35,14 +35,24 @@ with tab1:
                 status = st.selectbox("Status", status_options,key=1)
                 item_type = st.selectbox("Item Type", item_type_options,key=2)
                 country = st.selectbox("Country", sorted(country_options),key=3)
-                application = st.selectbox("Application", sorted(application_options),key=4)                
-            with col3:
+                application = st.selectbox("Application", sorted(application_options),key=4)
                 product_ref = st.selectbox("Product Reference", product,key=5)
-                st.write('NOTE: Below Range is given just for reference, you can enter any value')
+            with col3:               
+                st.write( f'<h5 style="color:rgb(0, 153, 153,0.4);">NOTE:Below Range is given just for reference, you can enter any value</h5>', unsafe_allow_html=True )
                 quantity_tons = st.text_input("Enter Quantity Tons (Min:611728 & Max:1722207579)")
                 thickness = st.text_input("Enter thickness (Min:0.18 & Max:400)")
                 width = st.text_input("Enter width (Min:1, Max:2990)")
                 customer = st.text_input("customer ID (Min:12458, Max:30408185)")
+                submit_button = st.form_submit_button(label="Submit")
+                st.markdown("""
+                    <style>
+                    div.stButton > button:first-child {
+                        background-color: #009999;
+                        color: white;
+                        width: 100%;
+                    }
+                    </style>
+                """, unsafe_allow_html=True)
     
             flag=0 
             pattern = "^(?:\d+|\d*\.\d+)$"
@@ -52,7 +62,7 @@ with tab1:
                 else:                    
                     flag=1  
                     break
-            submit_button = st.form_submit_button(label="Submit")
+            
         if submit_button and flag==1:
             if len(i)==0:
                 st.write("please enter a valid number space not allowed")
