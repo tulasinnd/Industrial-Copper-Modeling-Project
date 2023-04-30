@@ -14,23 +14,37 @@ The copper industry deals with less complex data related to sales and pricing. H
 Another area where the copper industry faces challenges is in capturing the leads. A lead classification model is a system for evaluating and classifying leads based on how likely they are to become a customer. You can use the STATUS variable with WON being considered as Success and LOST being considered as Failure and remove data points other than WON, LOST STATUS values.
 
 ## Solution
+
 The solution includes the following steps:
 
 Exploring skewness and outliers in the dataset.
+
 Transforming the data into a suitable format and performing any necessary cleaning and pre-processing steps.
+
 Developing a machine learning regression model which predicts the continuous variable 'Selling_Price' using the decision tree regressor.
+
 Developing a machine learning classification model which predicts the Status: WON or LOST using the decision tree classifier.
+
 Creating a Streamlit page where you can insert each column value and get the Selling_Price predicted value or Status (Won/Lost).
 
 ## Requirements
+
 This project requires the following libraries to be installed:
+
 NumPy
+
 Pandas
+
 Scikit-learn
+
 Streamlit
 
 ## Getting Started
+
 Clone the repository.
+
 Install the required libraries.
+
 Run the Streamlit app using the command: streamlit run app.py.
+
 Enter the values for each column to get the Selling_Price predicted value or Status (Won/Lost).
