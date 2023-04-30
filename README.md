@@ -1,6 +1,6 @@
 # Industrial-Copper-Modeling-Project
 
-Application Link:
+Application Link: https://tulasinnd-industrial-copper.streamlit.app/
 
 Demo Video Link:
 
