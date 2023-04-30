@@ -8,9 +8,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import LabelBinarizer
 import streamlit as st
 import re
-
 st.set_page_config(layout="wide")
-# st.write( f'<h1 style="color:#009999;">Industrial Copper Modeling Application</h1>', unsafe_allow_html=True )
+
 st.write("""
 <div style='text-align:center'>
     <h1 style='color:#009999;'>Industrial Copper Modeling Application</h1>
@@ -75,6 +74,7 @@ with tab1:
                 st.write("You have entered an invalid value: ",i)  
              
         if submit_button and flag==0:
+            
             import pickle
             with open(r"source/model.pkl", 'rb') as file:
                 loaded_model = pickle.load(file)
@@ -88,16 +88,13 @@ with tab1:
                 s_loaded = pickle.load(f)
 
             new_sample= np.array([[np.log(float(quantity_tons)),application,np.log(float(thickness)),float(width),country,float(customer),int(product_ref),item_type,status]])
-
-           #new_sample = np.array([[np.log(700), 10, np.log(20), 10, 28,30202938,1670798778,'PL','Won']])
             new_sample_ohe = t_loaded.transform(new_sample[:, [7]]).toarray()
             new_sample_be = s_loaded.transform(new_sample[:, [8]]).toarray()
             new_sample = np.concatenate((new_sample[:, [0,1,2, 3, 4, 5, 6,]], new_sample_ohe, new_sample_be), axis=1)
             new_sample1 = scaler_loaded.transform(new_sample)
             new_pred = loaded_model.predict(new_sample1)[0]
             st.write('## :green[Predicted selling price:] ', np.exp(new_pred))
-
-              
+            
 with tab2: 
     
         with st.form("my_form1"):
