@@ -38,7 +38,7 @@ with tab1:
                 application = st.selectbox("Application", sorted(application_options),key=4)
                 product_ref = st.selectbox("Product Reference", product,key=5)
             with col3:               
-                st.write( f'<h5 style="color:rgb(0, 153, 153,0.4);">NOTE:Below Range is given just for reference, you can enter any value</h5>', unsafe_allow_html=True )
+                st.write( f'<h5 style="color:rgb(0, 153, 153,0.4);">NOTE: Min & Max given for reference, you can enter any value</h5>', unsafe_allow_html=True )
                 quantity_tons = st.text_input("Enter Quantity Tons (Min:611728 & Max:1722207579)")
                 thickness = st.text_input("Enter thickness (Min:0.18 & Max:400)")
                 width = st.text_input("Enter width (Min:1, Max:2990)")
