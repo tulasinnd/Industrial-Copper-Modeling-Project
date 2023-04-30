@@ -6,10 +6,9 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import LabelBinarizer
-import joblib
-
 import streamlit as st
 import re
+
 st.set_page_config(layout="wide")
 # st.write( f'<h1 style="color:#009999;">Industrial Copper Modeling Application</h1>', unsafe_allow_html=True )
 st.write("""
@@ -76,17 +75,6 @@ with tab1:
                 st.write("You have entered an invalid value: ",i)  
              
         if submit_button and flag==0:
-            # Print the user input
-#             st.write("Status:", status)
-#             st.write("Item Type:", item_type)
-#             st.write("Country:", country)
-#             st.write("Application:", application) 
-#             st.write("Product Reference:", product_ref)
-#             st.write("Quantity Tons:", quantity_tons)
-#             st.write("Thickness:", thickness)
-#             st.write("Width:", width)
-#             st.write("Customer ID:", customer)
-
             import pickle
             with open(r"source/model.pkl", 'rb') as file:
                 loaded_model = pickle.load(file)
@@ -145,17 +133,7 @@ with tab2:
                 st.write("You have entered an invalid value: ",k)  
              
         if csubmit_button and cflag==0:
-            # Print the user input
-            # st.write("Item Type:", citem_type)
-            # st.write("Country:", ccountry)
-            # st.write("Application:", capplication) 
-            # st.write("Product Reference:", cproduct_ref)
-            # st.write("Quantity Tons:", cquantity_tons)
-            # st.write("Thickness:", cthickness)
-            # st.write("Width:", cwidth)
-            # st.write("Customer ID:", ccustomer)
-            # st.write("Selling Price:", cselling)
-
+            import pickle
             with open(r"source/cmodel.pkl", 'rb') as file:
                 cloaded_model = pickle.load(file)
 
@@ -168,7 +146,6 @@ with tab2:
             # Predict the status for a new sample
             # 'quantity tons_log', 'selling_price_log','application', 'thickness_log', 'width','country','customer','product_ref']].values, X_ohe
             new_sample = np.array([[np.log(float(cquantity_tons)), np.log(float(cselling)), capplication, np.log(float(cthickness)),float(cwidth),ccountry,int(ccustomer),int(product_ref),citem_type]])
-            #new_sample = np.array([[np.log(700), np.log(956), 10, np.log(2),1500,28.0,30202938,1670798778,'W']])
             new_sample_ohe = ct_loaded.transform(new_sample[:, [8]]).toarray()
             new_sample = np.concatenate((new_sample[:, [0,1,2, 3, 4, 5, 6,7]], new_sample_ohe), axis=1)
             new_sample = cscaler_loaded.transform(new_sample)
