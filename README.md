@@ -2,7 +2,7 @@
 
 Application Link: https://tulasinnd-industrial-copper.streamlit.app/
 
-Demo Video Link:
+Demo Video Link: https://www.linkedin.com/posts/tulasi-n-49b6111b0_python-machinelearning-decisiontrees-activity-7058375260022181888-oCFS?utm_source=share&utm_medium=member_desktop
 
 ## Introduction
 This project aims to develop two machine learning models for the copper industry to address the challenges of predicting selling price and lead classification. Manual predictions can be time-consuming and may not result in optimal pricing decisions or accurately capture leads. The models will utilize advanced techniques such as data normalization, outlier detection and handling, handling data in the wrong format, identifying the distribution of features, and leveraging tree-based models, specifically the decision tree algorithm, to predict the selling price and leads accurately.
