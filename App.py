@@ -11,10 +11,16 @@ import joblib
 import streamlit as st
 import re
 st.set_page_config(layout="wide")
+# st.write( f'<h1 style="color:#009999;">Industrial Copper Modeling Application</h1>', unsafe_allow_html=True )
+st.write("""
+<div style='text-align:center'>
+    <h1 style='color:#009999;'>Industrial Copper Modeling Application</h1>
+</div>
+""", unsafe_allow_html=True)
 
-tab1, tab2 = st.tabs(["REGRESSION", "CLASSIFICATION"]) 
+tab1, tab2 = st.tabs(["PREDICT SELLING PRICE (REGRESSION)", "PREDICT STATUS (CLASSIFICATION)"]) 
 with tab1:    
-        st.write( f'<h1 style="color:#009999;">PREDICT SELLING PRICE</h1>', unsafe_allow_html=True )
+        
 
         # Define the possible values for the dropdown menus
         status_options = ['Won', 'Draft', 'To be approved', 'Lost', 'Not lost for AM', 'Wonderful', 'Revised', 'Offered', 'Offerable']
