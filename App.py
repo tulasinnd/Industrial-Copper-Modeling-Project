@@ -43,7 +43,7 @@ with tab1:
                 thickness = st.text_input("Enter thickness (Min:0.18 & Max:400)")
                 width = st.text_input("Enter width (Min:1, Max:2990)")
                 customer = st.text_input("customer ID (Min:12458, Max:30408185)")
-                submit_button = st.form_submit_button(label="Submit")
+                submit_button = st.form_submit_button(label="PREDICT SELLING PRICE")
                 st.markdown("""
                     <style>
                     div.stButton > button:first-child {
