@@ -17,7 +17,7 @@ st.write("""
 </div>
 """, unsafe_allow_html=True)
 
-tab1, tab2 = st.tabs(["PREDICT SELLING PRICE (REGRESSION)", "PREDICT STATUS (CLASSIFICATION)"]) 
+tab1, tab2 = st.tabs(["PREDICT SELLING PRICE", "PREDICT STATUS"]) 
 with tab1:    
         
 
